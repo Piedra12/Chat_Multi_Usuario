@@ -1,0 +1,128 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chat Multiusuario</title>
+
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="app">
+
+    <header class="top">
+      <div>
+        <p class="eyebrow">RED LOCAL · FASTAPI + WEBSOCKETS</p>
+        <h1>Chat Multiusuario</h1>
+        <p class="subtitle">
+          Mensajes en tiempo real dentro de tu red
+        </p>
+      </div>
+
+      <span id="connectionStatus" class="status offline">
+        Desconectado
+      </span>
+    </header>
+
+    <!-- Formulario para ingresar -->
+    <section id="loginPanel" class="login-panel">
+      <h2>Entrar al chat</h2>
+      <p>Escribe un nombre para identificar tus mensajes.</p>
+
+      <form id="loginForm">
+        <label for="usernameInput">Nombre de usuario</label>
+
+        <input
+          type="text"
+          id="usernameInput"
+          name="username"
+          maxlength="24"
+          autocomplete="nickname"
+          placeholder="Ej. Jade"
+          required
+        >
+
+        <button id="loginButton" type="submit">
+          Ingresar al chat
+        </button>
+      </form>
+
+      <p id="loginError" class="hint" role="status"></p>
+
+      <p class="hint">
+        Usa un nombre diferente en cada equipo.
+      </p>
+    </section>
+
+    <!-- Ventana principal del chat -->
+    <section id="chatPanel" class="chat-layout hidden">
+
+      <aside class="sidebar">
+        <h2>
+          Participantes
+          <span id="userCount">0</span>
+        </h2>
+
+        <ul id="userList" class="user-list"></ul>
+
+        <p class="hint">
+          Los usuarios aparecen aquí mientras estén conectados.
+        </p>
+
+        <button
+          id="leaveButton"
+          class="secondary"
+          type="button"
+        >
+          Salir del chat
+        </button>
+      </aside>
+
+      <section class="chat-main">
+
+        <div
+          id="messages"
+          class="messages"
+          aria-live="polite"
+          aria-label="Mensajes del chat"
+        >
+          <div class="empty-state">
+            Aún no hay mensajes. ¡Inicia la conversación!
+          </div>
+        </div>
+
+        <form id="messageForm" class="message-form">
+          <input
+            type="text"
+            id="messageInput"
+            name="message"
+            maxlength="1000"
+            placeholder="Escribe un mensaje..."
+            autocomplete="off"
+            required
+          >
+
+          <button type="submit">Enviar</button>
+        </form>
+
+        <p class="hint">
+          Los mensajes se muestran mientras permanecen en la sesión.
+          El servidor no utiliza una base de datos.
+        </p>
+
+      </section>
+    </section>
+
+    <footer>
+      Proyecto académico · FastAPI · WebSockets
+    </footer>
+
+  </main>
+
+  <!-- Cargar el JavaScript del chat -->
+  <script src="/static/chat.js"></script>
+</body>
+</html>
+```

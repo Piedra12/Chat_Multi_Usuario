@@ -1,0 +1,633 @@
+
+/* ==============================
+   PALETA OTOÑAL SUAVE
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: light;
+
+    --background: #f7f3ec;
+    --surface: #fffdf9;
+    --surface-soft: #f3ede4;
+
+    --terracotta: #b8755b;
+    --terracotta-dark: #985b45;
+    --terracotta-light: #f2e0d6;
+
+    --sage: #899581;
+    --sage-light: #e7ebe2;
+
+    --ink: #51443b;
+    --muted: #918579;
+    --line: #e9e0d5;
+
+    --shadow: 0 12px 35px rgba(91, 69, 51, 0.07);
+}
+
+/* ==============================
+   FONDO Y TIPOGRAFÍA
+   ============================== */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 10% 5%,
+            rgba(214, 179, 150, 0.17),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(159, 174, 145, 0.14),
+            transparent 28%
+        ),
+        var(--background);
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+.app {
+    width: min(1120px, 94vw);
+    margin: 38px auto;
+}
+
+/* ==============================
+   ENCABEZADO
+   ============================== */
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin: 0 0 8px;
+}
+
+h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    margin: 0;
+    color: #554439;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin: 10px 0 0;
+    font-size: 0.96rem;
+}
+
+/* ==============================
+   ESTADO DE CONEXIÓN
+   ============================== */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: 30px;
+    font-size: 0.83rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.online {
+    color: #526b4c;
+    background: var(--sage-light);
+}
+
+.online::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7f9875;
+}
+
+.offline {
+    color: #995b4d;
+    background: #f4e3dc;
+}
+
+.offline::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #b8755b;
+}
+
+/* ==============================
+   TARJETAS Y PANELES
+   ============================== */
+
+.login-panel,
+.sidebar,
+.chat-main {
+    background: rgba(255, 253, 249, 0.94);
+    border: 1px solid rgba(226, 214, 200, 0.85);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.login-panel {
+    max-width: 470px;
+    margin: 54px auto;
+    padding: 36px;
+}
+
+h2 {
+    margin: 0 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #5c493d;
+}
+
+.login-panel p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* ==============================
+   FORMULARIOS
+   ============================== */
+
+form label {
+    display: block;
+    font-weight: 650;
+    font-size: 0.88rem;
+    margin: 20px 0 9px;
+    color: #67574a;
+}
+
+input {
+    min-width: 0;
+    width: 100%;
+    border: 1px solid #e2d8cb;
+    border-radius: 12px;
+    padding: 14px 15px;
+    font: inherit;
+    font-size: 0.94rem;
+    color: var(--ink);
+    background: #fffefa;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+input::placeholder {
+    color: #b3a79a;
+}
+
+input:focus {
+    border-color: var(--terracotta);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(184, 117, 91, 0.12);
+}
+
+/* ==============================
+   BOTONES
+   ============================== */
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 18px;
+    background: var(--terracotta);
+    color: #fffdf9;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    background: var(--terracotta-dark);
+    box-shadow: 0 5px 14px rgba(152, 91, 69, 0.15);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(184, 117, 91, 0.35);
+    outline-offset: 3px;
+}
+
+.login-panel button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 15px;
+}
+
+.hint {
+    font-size: 0.81rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ==============================
+   DISTRIBUCIÓN DEL CHAT
+   ============================== */
+
+.chat-layout {
+    display: grid;
+    grid-template-columns: 255px minmax(0, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.sidebar {
+    padding: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+}
+
+.sidebar h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#userCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    background: var(--sage-light);
+    color: #596b50;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 0.82rem;
+}
+
+.user-list {
+    list-style: none;
+    margin: 10px 0 20px;
+    padding: 0;
+}
+
+.user-list li {
+    padding: 12px 8px;
+    border-bottom: 1px solid #f0e9df;
+    overflow-wrap: anywhere;
+    font-size: 0.92rem;
+}
+
+.user-list li::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #8c9c7d;
+    margin-right: 10px;
+}
+
+.secondary {
+    margin-top: auto;
+    background: var(--surface-soft);
+    color: #78685a;
+}
+
+.secondary:hover {
+    background: #e9dfd3;
+    box-shadow: none;
+}
+
+/* ==============================
+   ÁREA DE MENSAJES
+   ============================== */
+
+.chat-main {
+    padding: 22px;
+    min-height: 540px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.messages {
+    flex: 1;
+    min-height: 360px;
+    max-height: 58vh;
+    overflow-y: auto;
+    padding: 8px 6px 18px;
+    scrollbar-width: thin;
+    scrollbar-color: #d7c7b6 transparent;
+}
+
+.messages::-webkit-scrollbar {
+    width: 7px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #d7c7b6;
+    border-radius: 10px;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--muted);
+    padding: 70px 15px;
+    line-height: 1.8;
+}
+
+/* ==============================
+   BURBUJAS DE MENSAJES
+   ============================== */
+
+.message {
+    margin: 12px 0;
+    padding: 13px 16px;
+    background: #f2ece3;
+    border: 1px solid #eee4d8;
+    border-radius: 16px 16px 16px 5px;
+    max-width: 84%;
+    overflow-wrap: anywhere;
+    animation: appear 0.2s ease-out;
+}
+
+.message.mine {
+    margin-left: auto;
+    background: #e7ebe1;
+    border-color: #dfe5d8;
+    border-radius: 16px 16px 5px 16px;
+}
+
+.message-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 0.76rem;
+    color: #968779;
+    margin-bottom: 7px;
+}
+
+.message-name {
+    color: #a5644d;
+    font-weight: 750;
+}
+
+.message.mine .message-name {
+    color: #65775b;
+}
+
+.message-body {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    color: #51463d;
+    font-size: 0.94rem;
+}
+
+.system-message {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #998b7c;
+    margin: 17px 0;
+}
+
+/* ==============================
+   CAMPO PARA ENVIAR MENSAJES
+   ============================== */
+
+.message-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 17px;
+    border-top: 1px solid var(--line);
+}
+
+.message-form input {
+    flex: 1;
+    min-width: 0;
+}
+
+.message-form button {
+    flex-shrink: 0;
+    min-height: 48px;
+    padding-inline: 23px;
+}
+
+/* ==============================
+   PIE DE PÁGINA
+   ============================== */
+
+footer {
+    text-align: center;
+    color: #a29587;
+    font-size: 0.8rem;
+    margin: 25px 0;
+}
+
+/* ==============================
+   ANIMACIONES Y UTILIDADES
+   ============================== */
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================
+   DISEÑO RESPONSIVO
+   ============================== */
+
+@media (max-width: 700px) {
+    .app {
+        width: 92vw;
+        margin: 22px auto;
+    }
+
+    .top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .chat-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        order: 2;
+        padding: 20px;
+    }
+
+    .chat-main {
+        min-height: 460px;
+        padding: 15px;
+    }
+
+    .messages {
+        min-height: 300px;
+        max-height: 48vh;
+    }
+
+    .message {
+        max-width: 96%;
+    }
+
+    .login-panel {
+        margin: 32px auto;
+        padding: 25px;
+    }
+
+    .message-form {
+        gap: 8px;
+    }
+
+    .message-form button {
+        padding-inline: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =================================
+   OCTUBRE: PALETA DE OTOÑO
+   ================================= */
+
+:root {
+    --october-bg: #f7f1e8;
+    --pumpkin: #b87552;
+    --cinnamon: #a66e54;
+    --autumn-gold: #c0a16b;
+    --sage: #899581;
+    --plum: #a18a9b;
+    --rose: #c18d87;
+    --olive: #a4a27b;
+}
+
+/* Fondo con luz otoñal */
+body {
+    background:
+        radial-gradient(
+            circle at 5% 8%,
+            rgba(192, 161, 107, 0.14),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 95% 30%,
+            rgba(184, 117, 82, 0.10),
+            transparent 26%
+        ),
+        linear-gradient(145deg, #f8f4ed, #f2ece2);
+}
+
+/* Burbujas: cada usuario recibe su propio tono */
+.message {
+    background: var(--bubble-bg, #f2e5d9);
+    border: 1px solid var(--bubble-border, #e8d7c8);
+    border-radius: 16px 16px 16px 5px;
+    transition: background 0.2s ease;
+}
+
+.message.mine {
+    background: var(--bubble-bg, #e7ebe1);
+    border-color: var(--bubble-border, #dce2d5);
+    border-radius: 16px 16px 5px 16px;
+}
+
+/* El nombre combina con el color de su burbuja */
+.message-name {
+    color: var(--bubble-name, #9b6248);
+}
+
+.message.mine .message-name {
+    color: var(--bubble-name, #65775b);
+}
+
+/* Avisos de entrada y salida */
+.system-message {
+    display: table;
+    margin: 15px auto;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #eee7dc;
+    color: #8d7967;
+    font-size: 0.79rem;
+}
+
+/* Detalles otoñales en el encabezado */
+.eyebrow {
+    color: #a66e54;
+}
+
+.eyebrow::before {
+    content: "✦ ";
+    color: #c0a16b;
+}
+
+/* Toque cálido en los campos */
+input:focus {
+    border-color: #b87552;
+    box-shadow: 0 0 0 4px rgba(184, 117, 82, 0.12);
+}
+
+/* Botones color canela */
+button {
+    background: #ad765b;
+}
+
+button:hover {
+    background: #925d46;
+}
+
+/* Selección de texto */
+::selection {
+    background: #e8d0b9;
+    color: #51443b;
+}
